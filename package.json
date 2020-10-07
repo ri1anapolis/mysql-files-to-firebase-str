@@ -1,0 +1,25 @@
+{
+  "name": "mysql-files-to-firebase-str",
+  "version": "1.0.0",
+  "description": "A app/micro-service to upload mysql blobs/files to google firebase storage and get its individual links",
+  "main": "src/index.js",
+  "repository": "https://github.com/fmartins-andre/mysql-files-to-firebase-str.git",
+  "author": "André Martins <fmartins.andre@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ."
+  },
+  "dependencies": {
+    "@firebase/app-types": "0.x",
+    "firebase": "^7.21.1",
+    "firebase-admin": "^9.2.0",
+    "mongodb": "^3.6.2",
+    "mysql2": "^2.1.0",
+    "node-gzip": "^1.1.2",
+    "xhr2": "^0.2.0",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.1"
+  }
+}
