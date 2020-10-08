@@ -17,6 +17,7 @@ A app/microservice to upload mysql blobs/files to google firebase storage and ge
 - `node-gzip`
 - `zlib`
 - `mongodb`
+- `crypto-js`
 
 It already needs some other dependencies installed on the server/container
 
