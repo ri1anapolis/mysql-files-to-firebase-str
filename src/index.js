@@ -29,9 +29,13 @@ async function main() {
 
   try {
     const config = await fs.readFile(configFile, "utf-8")
-    const { mysql, mongo, firebaseConfig, firebaseServiceAccount } = JSON.parse(
-      config
-    )
+    const {
+      crypto_key,
+      mysql,
+      mongo,
+      firebaseConfig,
+      firebaseServiceAccount,
+    } = JSON.parse(config)
     console.log(`::: Application: Configuration file loaded.`)
 
     const remoteData = await firebaseData(
@@ -55,7 +59,12 @@ async function main() {
       if (numLocalFiles > 0) {
         await convertFiles(localFolder)
         await deleteLocalFiles(localFolder, "rtf")
-        uploadedFiles = await uploadFiles(mysqlRows, localFolder, remoteData)
+        uploadedFiles = await uploadFiles(
+          mysqlRows,
+          localFolder,
+          remoteData,
+          crypto_key
+        )
         await deleteLocalFiles(localFolder, "pdf")
       }
 

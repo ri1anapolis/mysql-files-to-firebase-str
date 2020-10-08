@@ -32,6 +32,7 @@ Just run it with a JSON configuration file and it's done!
 
 ```
 {
+  "crypto_key": "KbPpimb@N4caximb0c49y$B&E)HcQWnZ",
   "mysql": {
     "query": "SELECT 'HELLO WORD'",
     "connectionParameters": {
@@ -81,6 +82,7 @@ Just run it with a JSON configuration file and it's done!
 
 ```
 
+- Section `crypto_key`: Secret key to be used do salt or cypher a message;
 - Section `mysql`: All the configurations related to MySQL, including the select statement;
 - Section `mongo`: All the connection parameters to the MongoDB Cloud instance;
 - Section `firebaseConfig`: All the parameters to work with Google Firebase. Get it from Firebase Config Panel;
