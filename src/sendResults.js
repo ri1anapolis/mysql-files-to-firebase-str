@@ -28,7 +28,10 @@ async function sendResults(dataToAdd, dataToDelete, mongo) {
     }
 
     if (qtyToAdd > 0) {
-      await client.db(db).collection(collection).insertMany(dataToAdd)
+      await client
+        .db(db)
+        .collection(collection)
+        .insertMany(dataToAdd, { ordered: false })
       console.log(
         `::: MongoDB: Inserted ${dataToAdd.length} items into "${collection}" collection on "${db}" database!`
       )

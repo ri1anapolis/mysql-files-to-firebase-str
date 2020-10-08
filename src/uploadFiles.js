@@ -1,7 +1,13 @@
 const fs = require("fs").promises
+const encrypt = require("./utils/encrypt")
 require("firebase/storage")
 
-const uploadFiles = async (localData, localFolder, firebaseData) => {
+const uploadFiles = async (
+  localData,
+  localFolder,
+  firebaseData,
+  crypto_key
+) => {
   const { ref, prefix, filesNames } = firebaseData
 
   return new Promise(resolve => {
@@ -22,8 +28,8 @@ const uploadFiles = async (localData, localFolder, firebaseData) => {
 
           uploadedFiles.push({
             _id: row.id,
-            hash: row.hash,
-            url,
+            hash: `${encrypt("MD5", row.verification_code, crypto_key)}`,
+            encrypted_url: `${encrypt("AES", url, crypto_key)}`,
           })
         }
       } catch (error) {
